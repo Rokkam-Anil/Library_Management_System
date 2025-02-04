@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: aquamarine;
+}
+#uid, #pass{
+    width: 19rem;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 5px;
+}
+#cancel, #login{
+    width: 7rem;
+    gap: 15px;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 5px;
+    color: white;
+    cursor: pointer;
+}
+#cancel{
+    background-color: red;
+}
+#login{
+    background-color: green;
+}

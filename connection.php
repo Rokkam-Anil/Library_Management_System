@@ -1,18 +1,12 @@
-
-
 <?php
+$servername = "localhost";
+$username = "root";  
+$password = "Anil@2004";     
+$dbname = "acxiom"; 
 
-    $db_server = "localhost";
-    $db_user = "root";
-    $db_pass = "Anil@2004";
-    $db_name = "acxiom";
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-
-    try{
-        $conn = mysqli_connect($db_server,$db_user,$db_pass,$db_name);
-    }
-    catch(mysqli_sql_exception)
-    {
-echo "could not connect";
-    }
+if($conn -> connect_error){
+    die("connection failed: " .$conn->connect_error);
+}
 ?>

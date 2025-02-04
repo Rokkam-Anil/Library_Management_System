@@ -1,5 +1,10 @@
 <?php 
 session_start();
+
+if (!isset($_SESSION["email"])) {
+    header("Location: login.php");
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -7,7 +12,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Home Page</title>
+    <title>User Home Page</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -59,37 +64,29 @@ session_start();
             text-align: right;
             margin-top: 20px;
         }
-        .logout a {
+        .logout-btn {
             text-decoration: none;
             color: #fff;
             background-color: #007bff;
             padding: 10px 20px;
             border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
         }
-        .logout-btn {
-    text-decoration: none;
-    color: #fff;
-    background-color: #007bff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-}
-.logout-btn:hover {
-    background-color: #0056b3;
-}
-
+        .logout-btn:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>Admin Home Page</h1>
-            <a href="#">Back</a>
+            <h1>Welcome, <?php echo htmlspecialchars($_SESSION["username"]); ?>!</h1>
+            <a href="dashboard.php">Back</a>
         </div>
         <nav>
-            <strong>Chart</strong> | <strong>Maintenance</strong> | <strong>Reports</strong> | <strong>Transactions</strong>
+            <strong>Book List</strong> | <strong>My Borrowed Books</strong> | <strong>Profile</strong>
         </nav>
         <table>
             <thead>
@@ -128,19 +125,20 @@ session_start();
             </tbody>
         </table>
         <div class="logout">
-            <form action="admin_home.php" method="post">
+            <form action="" method="post"> 
                 <input type="submit" name="logout" value="Log Out" class="logout-btn">
             </form>
         </div>
-
     </div>
 </body>
 </html>
 
 <?php
-if(isset($_POST["logout"]))
-{
+
+if (isset($_POST["logout"])) {
     session_destroy();
-   header("Location: admin.php");
+    
+    header("Location: login.php");
+    exit(); 
 }
 ?>

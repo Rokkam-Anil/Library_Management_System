@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+h1, h3{
+    color: rgb(138, 134, 134);
+}
+.container{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: aquamarine;
+}
+#fName, #lName, #email, #password, #role{
+    width: 25rem;
+    height: 2rem;
+    border-radius: 15px;
+    padding: 5px;
+    border: 2px solid black;
+}
+
+#cancel, #login{
+    width: 7rem;
+    gap: 15px;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 5px;
+    color: white;
+    cursor: pointer;
+}
+#cancel{
+    background-color: red;
+}
+#login{
+    background-color: green;
+}
